@@ -1,0 +1,32 @@
+@import "../Sass/config";
+
+header {
+  width: 100vw;
+  background-color: $primary;
+
+  nav {
+    ul {
+      width: 50%;
+      margin: 0px auto;
+      display: flex;
+      list-style: none;
+      justify-content: space-around;
+
+      li {
+        font-size: $medium;
+        font-weight: bolder;
+        padding: 25px 0px;
+
+        #link {
+          color: $text-dark;
+          text-decoration: none;
+          transition: 0.3s ease-in-out;
+
+          &:hover {
+            color: $text-light;
+          }
+        }
+      }
+    }
+  }
+}

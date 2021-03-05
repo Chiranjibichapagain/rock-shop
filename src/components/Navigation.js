@@ -1,19 +1,21 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+import "./navigation.scss"
+
 const Navigation = (props) => {
   return (
-    <header className="main-navigation">
+    <header >
       <nav>
         <ul>
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink id="link" to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/products">Products</NavLink>
+            <NavLink id="link" to="/products">Products</NavLink>
           </li>
           <li>
-            <NavLink to="/cart">Cart ({props.cartItemCount})</NavLink>
+            <NavLink id="link" to="/cart">Cart ({props.cartItemCount})</NavLink>
           </li>
         </ul>
       </nav>

@@ -2,6 +2,9 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { addProduct, searchProduct } from "../store/actions";
 
+import Product from '../components/Product'
+import './products.scss'
+  
 const Products = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products);
@@ -15,29 +18,16 @@ const Products = () => {
   return (
     <>
       <main className="products">
-        <input type="text" placeholder="Search" onChange={handleChange} />
-        <ul>
+        <input className="input" type="text" placeholder="Search your favorite stone" onChange={handleChange} />
+        <div className="cards">
           {products
             .filter((item) =>
               item.title.toLowerCase().includes(keyword.toLowerCase())
             )
             .map((product) => (
-              <li key={product.id}>
-                <div>
-                  <p>
-                    <strong>{product.title}</strong>
-                    {product.desc}
-                  </p>
-                  {product.price}€
-                </div>
-                <div>
-                  <button onClick={() => dispatch(addProduct(product))}>
-                    Add to Cart
-                  </button>
-                </div>
-              </li>
+              <Product key={ product.id} product={product} />
             ))}
-        </ul>
+        </div>
       </main>
     </>
   );

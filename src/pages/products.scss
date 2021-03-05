@@ -1,0 +1,21 @@
+@import "../Sass//config";
+
+.products {
+  margin: 30px 100px;
+  @include flexCenterHr;
+
+  .input {
+    width: 50%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    color: $primary;
+  }
+
+  .cards {
+    margin: 40px 10px 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

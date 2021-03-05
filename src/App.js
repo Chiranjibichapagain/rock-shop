@@ -7,6 +7,7 @@ import Products from "./pages/Products";
 import Cart from "./pages/Cart";
 import { useSelector } from "react-redux";
 
+import './App.scss'
 const App = () => {
   const cartItemCount = useSelector((state) =>
     state.cart.reduce((count, curItem) => {

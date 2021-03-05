@@ -1,0 +1,27 @@
+//Colors
+
+$primary: rgb(255, 27, 122);
+$secondary: #1690a8;
+$text-dark: #2a2a2a;
+$text-light: #f2f2f2;
+
+// texts
+$large: 30px;
+$medium: 20px;
+$small: 14px;
+
+// mixins
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexCenterHr {
+  display: flex;
+  justify-content: center;
+}
+@mixin flexSpaceHr {
+  display: flex;
+  justify-content: space-around;
+}
