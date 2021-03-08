@@ -18,12 +18,20 @@ header {
         padding: 25px 0px;
 
         #link {
-          color: $text-dark;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: $text-light;
           text-decoration: none;
           transition: 0.3s ease-in-out;
 
           &:hover {
             color: $text-light;
+          }
+
+          .count {
+            margin-left: 10px;
+            font-size: 25px;
           }
         }
       }

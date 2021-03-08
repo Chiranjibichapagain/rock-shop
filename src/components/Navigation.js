@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import {MdDelete} from 'react-icons/md'
+import {HiShoppingCart} from 'react-icons/hi'
 import "./navigation.scss"
 
 const Navigation = (props) => {
@@ -16,7 +16,7 @@ const Navigation = (props) => {
             <NavLink id="link" to="/products">Products</NavLink>
           </li>
           <li>
-            <NavLink id="link" to="/cart"> {props.cartItemCount}</NavLink>
+            <NavLink id="link" to="/cart"> <HiShoppingCart size="40" color="white" /> <p className='count'>{props.cartItemCount}</p></NavLink>
           </li>
         </ul>
       </nav>
