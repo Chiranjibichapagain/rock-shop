@@ -1,6 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import {MdDelete} from 'react-icons/md'
+
 import { removeProduct } from "../store/actions";
+import './cart.scss'
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart);
@@ -9,22 +12,17 @@ const Cart = () => {
   return (
     <>
       <main className="cart">
-        {cartItems.length <= 0 && <p>No Item in the Cart!</p>}
-        <ul>
+        {cartItems.length <= 0 && <p className='message'>Sorry! No Item in the Cart!</p>}
+        <div className='cartBox'>
           {cartItems.map((cartItem) => (
-            <li key={cartItem.id}>
-              <div>
-                <strong>{cartItem.title}</strong> - ${cartItem.price} (
-                {cartItem.quantity} {cartItem.style})
-              </div>
-              <div>
-                <button onClick={() => dispatch(removeProduct(cartItem.id))}>
-                  Remove from Cart
-                </button>
-              </div>
-            </li>
+            <div className='cartItem' key={cartItem.id}>
+              <h3 className='itemTitle'>{cartItem.title}</h3>
+              <p className='itemPrice'>{`${cartItem.price}€`}</p>
+              <MdDelete className='deleteBtn' color='red' size='30' onClick={() => dispatch(removeProduct(cartItem.id))} />
+            </div>
           ))}
-        </ul>
+        </div>
+        <button className="checkoutBtn" >Checkout</button>
       </main>
     </>
   );

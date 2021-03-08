@@ -1,12 +1,22 @@
-import React from 'react'
-import { useDispatch } from "react-redux";
+import React, {useState, useEffect} from 'react'
+
+import { useSelector, useDispatch } from "react-redux";
 import {HiShoppingCart} from 'react-icons/hi'
 
 import { addProduct} from "../store/actions";
 import './product.scss'
 
 const Product = ({ product }) => {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch()
+  const [btnIsDisabled, setBtnIsDisabled] = useState(false)
+
+    const productsInCart = useSelector((state) => state.cart);
+    
+    useEffect(() => {
+      const foundProduct = productsInCart.find(p => p.title === product.title)
+      foundProduct? setBtnIsDisabled(true):setBtnIsDisabled(false)
+    }, [productsInCart])
+
     
     return (
         <div className="card">
@@ -16,7 +26,7 @@ const Product = ({ product }) => {
           <p className="desc">{product.desc}</p>
           <div className="actions">
             <h3 className="price">{ `${product.price} €`}</h3>
-            <button className="cartBtn" onClick={() => dispatch(addProduct(product))}>+ <HiShoppingCart color="red"/> </button>
+          <button disabled={btnIsDisabled} className={!btnIsDisabled ? 'cartBtn' : 'cartBtnDisabled'} onClick={() => dispatch(addProduct(product))}>+ <HiShoppingCart color={!btnIsDisabled?'red':'grey' }/> </button>
           </div>
         </div>
     )

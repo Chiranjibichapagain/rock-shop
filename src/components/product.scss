@@ -46,21 +46,31 @@
       text-shadow: 0px 1.5px 8px rgba(14, 58, 87, 0.658);
     }
 
-    .cartBtn {
+    %cart {
       width: 70px;
       @include flexSpaceHr;
       font-size: $medium;
       padding: 5px;
       border: none;
       border-radius: 4px;
+      transition: 0.3s ease-in-out;
+    }
+
+    .cartBtn {
+      @extend %cart;
+      cursor: pointer;
       background-color: $text-light;
       box-shadow: 0px 1.5px 8px rgba(0, 0, 0, 0.658);
-      cursor: pointer;
-      transition: 0.3s ease-in-out;
 
       &:hover {
         background-color: rgb(255, 255, 255);
       }
+    }
+
+    .cartBtnDisabled {
+      @extend %cart;
+      background-color: rgb(38, 75, 97);
+      box-shadow: none;
     }
   }
 }
